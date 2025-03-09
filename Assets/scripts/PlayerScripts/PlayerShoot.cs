@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerShoot : AttributesSync
 {
+    [SynchronizableField] public int deaths = 0;
     [SynchronizableField] public int health = 100;
     public int maxHealth = 100;
 
@@ -16,6 +17,8 @@ public class PlayerShoot : AttributesSync
     public Alteruna.Avatar avatar;
     public Transform maincamera;
 
+    private Vector3 spawnPoint;
+
 
     private void Start()
     {
@@ -24,6 +27,8 @@ public class PlayerShoot : AttributesSync
         }
 
         avatar.gameObject.layer = playerSelfLayer;
+        
+        spawnPoint = GetComponentInParent<Rigidbody>().transform.position;
     }
 
     private void Update()
@@ -49,14 +54,19 @@ public class PlayerShoot : AttributesSync
 
     public void Hit(int damageTaken){
         health -= damageTaken;
-
+        
         if(health <= 0){
-            BroadcastRemoteMethod("Die");
+            InvokeRemoteMethod("Die", avatar.Possessor);
         }
     }
 
     [SynchronizableMethod]
     void Die(){
-        Debug.Log("player Died");
+        deaths++;
+        health = 100;
+
+        Transform playerTransform = GetComponentInParent<Rigidbody>().transform;
+        playerTransform.position = spawnPoint;
+
     }
 }

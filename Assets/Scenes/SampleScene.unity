@@ -1026,7 +1026,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 146.3237, y: 24.5033}
+  m_SizeDelta: {x: 95.4163, y: 27.3135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305215637
 MonoBehaviour:
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: mm:ss:msms
+  m_text: mm:ss
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f16e2af45d7db3b41a53d954e01cb54f, type: 2}
   m_sharedMaterial: {fileID: 7096454418988527355, guid: f16e2af45d7db3b41a53d954e01cb54f, type: 2}
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.05
+  m_fontSize: 22.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1911,8 +1911,10 @@ MonoBehaviour:
   AvatarSpawning: 1
   AvatarPrefab: {fileID: 5347386369988471224, guid: 031c7527208d86a4c80dcc7b526189ab, type: 3}
   AvatarSpawnLocation: {fileID: 895636635}
-  SpawnAvatarPerIndex: 0
-  AvatarSpawnLocations: []
+  SpawnAvatarPerIndex: 1
+  AvatarSpawnLocations:
+  - {fileID: 895636635}
+  - {fileID: 1881065439}
   OnConnected:
     m_PersistentCalls:
       m_Calls: []
@@ -1931,6 +1933,18 @@ MonoBehaviour:
       - m_Target: {fileID: 531862188}
         m_TargetAssemblyTypeName: MultiplayerUIManager, Assembly-CSharp
         m_MethodName: OnPlayerJoin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1490035798}
+        m_TargetAssemblyTypeName: TimerManager, Assembly-CSharp
+        m_MethodName: OnPlayerJoined
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2038,7 +2052,7 @@ Transform:
   m_GameObject: {fileID: 517039648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3900011, y: 0.3, z: 0.5294237}
+  m_LocalPosition: {x: 0.8, y: 0.3, z: -28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2607,7 +2621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 895636635}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: SpawnPoint(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2622,7 +2636,7 @@ Transform:
   m_GameObject: {fileID: 895636634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 30, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2820,6 +2834,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8763101913705298803, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
   m_PrefabInstance: {fileID: 1820494146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1490035797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490035799}
+  - component: {fileID: 1490035798}
+  m_Layer: 0
+  m_Name: TimerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490035798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490035797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2b581c4460c254fad2c371f5b952f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 517039649}
+  _uidString: de4c16ed-f9ae-4ab2-b18e-075b4055a0dc
+  Reliability: 1
+  LocalMethodBehavior: 1
+  timerText: {fileID: 305215637}
+  _multiplayer: {fileID: 517039649}
+--- !u!4 &1490035799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490035797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.87111, y: 11.346237, z: -6.2244716}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1529126580
 Mesh:
   m_ObjectHideFlags: 0
@@ -3852,6 +3916,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 320085541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1881065438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881065439}
+  m_Layer: 0
+  m_Name: SpawnPoint(1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881065439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881065438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1959983763
 Mesh:
   m_ObjectHideFlags: 0
@@ -4033,5 +4128,7 @@ SceneRoots:
   - {fileID: 1820494146}
   - {fileID: 320085541}
   - {fileID: 895636635}
+  - {fileID: 1881065439}
   - {fileID: 531862189}
   - {fileID: 36592314}
+  - {fileID: 1490035799}
