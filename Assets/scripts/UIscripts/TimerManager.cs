@@ -35,9 +35,18 @@ public class TimerManager : AttributesSync
         if(isRunning) yield break;
         isRunning = true;
 
+        float syncInterval = 0.5f;
+        float nextSyncTime = Time.time + syncInterval;
+
         while(timer > 0){
             timer -= Time.deltaTime;
-            BroadcastRemoteMethod("SyncTimer", timer);
+            UpdateTimerUI(timer);
+
+            if(Time.time >= nextSyncTime){
+                BroadcastRemoteMethod("SyncTimer", timer);
+                nextSyncTime = Time.time + syncInterval;
+            }
+            
             yield return null;
         }
 

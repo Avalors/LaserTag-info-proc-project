@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &297009640391890198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051052721511526763}
+  - component: {fileID: 2474559861039309795}
+  m_Layer: 6
+  m_Name: FPGAController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051052721511526763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297009640391890198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1262138707077116859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2474559861039309795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297009640391890198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6902dace2fe008945b915efbacdbd81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915670628859234548
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +256,7 @@ Transform:
   m_Children:
   - {fileID: 7543418653300055944}
   - {fileID: 4131510367976919990}
+  - {fileID: 2051052721511526763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5347386369988471224
@@ -628,6 +673,7 @@ MonoBehaviour:
   _uidString: 1f918ea9-4ea7-4da6-b9e9-0d7e25eab1c2
   Reliability: 1
   LocalMethodBehavior: 1
+  deaths: 0
   health: 100
   maxHealth: 100
   damage: 10
