@@ -46,7 +46,10 @@ public class PlayerShoot : AttributesSync
     void Shoot(){
         if(Physics.Raycast(maincamera.position, maincamera.forward, out RaycastHit hit, Mathf.Infinity, playerLayer)){
             PlayerShoot playerShoot = hit.transform.GetComponentInChildren<PlayerShoot>();
-            playerShoot.Hit(damage);
+            //prevents player deaths from increasing more than once after shot multiple times
+            if(playerShoot.health > 0){
+                playerShoot.Hit(damage);
+            }
         }
 
         
