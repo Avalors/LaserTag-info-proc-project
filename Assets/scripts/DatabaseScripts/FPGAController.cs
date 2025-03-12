@@ -3,7 +3,6 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using UnityEditor.Scripting.Python;
 using System.Threading;
 public class FPGAController : MonoBehaviour
 {
@@ -13,13 +12,11 @@ public class FPGAController : MonoBehaviour
     private NetworkStream stream;
     public bool connected = false;
     public int accelerometer_x = 0;
-    public int accolerometer_y = 0;
+    public int accelerometer_y = 0;
     public int shooting_data = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        ConnectFPGA();
-    }
+
+
     private void ConnectFPGA()
     {
         client = new TcpClient(serverIP, port);
@@ -37,23 +34,27 @@ public class FPGAController : MonoBehaviour
     {
         byte[] response = new byte[1024];
         Int32 responseBytes = stream.Read(response, 0, response.Length);
-        return System.Text.Encoding.ASCII.GetString(response, 0, responseBytes);
+        string responseString = System.Text.Encoding.ASCII.GetString(response, 0, responseBytes);
+        Debug.Log("response: " + responseString);
+        return responseString;
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateReadings()
     {
         try
         {
-            
+            ConnectFPGA();
             SendMessage("read_state");
 
             string response = ReceiveMessage();
             
             string[] words = response.Split(' ');
             accelerometer_x = int.Parse(words[0]);
-            accolerometer_y = int.Parse(words[1]);
+            accelerometer_y = int.Parse(words[1]);
             shooting_data = int.Parse(words[2]);
+
+            
             
             connected = true;
         }
@@ -61,7 +62,21 @@ public class FPGAController : MonoBehaviour
         {
             connected = false;
             Debug.Log(e);
+        }
+    }
+
+    public void ClearButton(){
+        try
+        {
             ConnectFPGA();
+            SendMessage("N");
+            
+            connected = true;
+        }
+        catch (Exception e)
+        {
+            connected = false;
+            Debug.Log(e);
         }
     }
 }

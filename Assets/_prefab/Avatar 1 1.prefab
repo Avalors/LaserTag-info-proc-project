@@ -41,9 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 297009640391890198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6902dace2fe008945b915efbacdbd81b, type: 3}
+  m_Script: {fileID: 11500000, guid: fef6deeb3b9766b4a8ae14d03766ba15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connected: 0
+  accelerometer_x: 0
+  accolerometer_y: 0
+  shooting_data: 0
 --- !u!1 &915670628859234548
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +687,7 @@ MonoBehaviour:
   playerSelfLayer: 7
   avatar: {fileID: 5347386369988471224}
   maincamera: {fileID: 7543418653300055944}
+  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &6855969457818050601
 MonoBehaviour:
   m_ObjectHideFlags: 0
