@@ -4524,7 +4524,6 @@ MonoBehaviour:
   MyDeaths: {fileID: 801760154}
   ScoreBoardKills: {fileID: 1059169666}
   ScoreBoardEnemyKills: {fileID: 1353460391}
-  _multiplayer: {fileID: 517039649}
 --- !u!4 &1490035799
 Transform:
   m_ObjectHideFlags: 0

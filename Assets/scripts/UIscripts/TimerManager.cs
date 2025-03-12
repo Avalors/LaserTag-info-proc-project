@@ -34,11 +34,11 @@ public class TimerManager : AttributesSync
 
     public TextMeshProUGUI ScoreBoardEnemyKills;
 
-    [SynchronizableField] private float timer = 30f; //3 minute timer
+    [SynchronizableField] private float timer = 180f; //3 minute timer
     private bool isRunning = false;
 
     [Header("Multiplayer Manager")]
-    public Multiplayer _multiplayer; //assign in inspector (multiplayer network manager)
+    private Multiplayer _multiplayer; //assign in inspector (multiplayer network manager)
 
     void Awake()
     {
@@ -124,8 +124,9 @@ public class TimerManager : AttributesSync
             Tie.SetActive(true);
         }
 
-        Debug.Log("GAME OVER"); //IMPLEMENT FUNCTIONALITY
     }
+
+
 
 
     [SynchronizableMethod]
