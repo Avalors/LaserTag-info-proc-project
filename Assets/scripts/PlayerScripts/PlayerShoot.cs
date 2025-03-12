@@ -1,5 +1,6 @@
 using UnityEngine;
 using Alteruna;
+using TMPro;
 using NUnit.Framework;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -17,8 +18,7 @@ public class PlayerShoot : AttributesSync
     public Alteruna.Avatar avatar;
     public Transform maincamera;
 
-    private Vector3 spawnPoint;
-
+    public Vector3 spawnPoint;
 
     private void Start()
     {
